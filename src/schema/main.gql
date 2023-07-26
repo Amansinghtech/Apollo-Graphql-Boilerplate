@@ -1,0 +1,20 @@
+"Convert incoming string to Date Object and Outgoing Date to timestamp"
+scalar Date
+"Verify incoming string to Email address and Outgoing Email to string"
+scalar Email
+"Verify incoming string to positive integer and Outgoing positive integer to string or zero"
+scalar FilterSkip
+"Verify incoming string to positive integer and Outgoing positive integer to string"
+scalar FilterLimit
+"convert lower case to uppercase"
+directive @upper on FIELD_DEFINITION
+"required Authorization header with valid Access Token"
+directive @auth on FIELD_DEFINITION
+"required Authorization header with valid Access Token and Admin role"
+directive @admin on FIELD_DEFINITION
+"required Authorization header with valid access key & secret key"
+directive @serviceAccount on FIELD_DEFINITION
+
+type Query {
+	hello: String
+}

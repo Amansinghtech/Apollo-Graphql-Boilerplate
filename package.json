@@ -1,0 +1,57 @@
+{
+	"name": "nekione-api-server",
+	"version": "1.0.0",
+	"description": "nekione",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build": "npm run build:production",
+		"build:dev": "webpack --config webpack.development.js",
+		"build:development": "npm run build:dev",
+		"build:production": "webpack --config webpack.production.js",
+		"start": "node dist/server",
+		"dev": "nodemon --require dotenv/config dist/server",
+		"eslint": "./node_modules/eslint/bin/eslint.js src/*/**",
+		"devStart": "npm-run-all -p build:dev dev",
+		"codegen": "graphql-codegen --config codegen.ts"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/nekione/PLV-API-Server.git"
+	},
+	"author": "Aman Singh",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/nekione/PLV-API-Server/issues"
+	},
+	"homepage": "https://github.com/nekione/PLV-API-Server#readme",
+	"devDependencies": {
+		"@graphql-codegen/cli": "5.0.0",
+		"@graphql-codegen/introspection": "4.0.0",
+		"@graphql-codegen/typescript": "4.0.1",
+		"@graphql-codegen/typescript-document-nodes": "4.0.1",
+		"@graphql-codegen/typescript-mongodb": "2.4.6",
+		"@graphql-codegen/typescript-resolvers": "4.0.1",
+		"@types/lodash": "^4.14.182",
+		"clean-webpack-plugin": "^4.0.0",
+		"nodemon": "^3.0.1",
+		"npm-run-all": "^4.1.5",
+		"ts-loader": "^9.3.1",
+		"typescript": "^5.1.6",
+		"webpack": "^5.24.3",
+		"webpack-cli": "^5.1.4",
+		"webpack-merge": "^5.7.3",
+		"webpack-node-externals": "^3.0.0"
+	},
+	"dependencies": {
+		"@apollo/server": "^4.8.1",
+		"@graphql-tools/graphql-file-loader": "^8.0.0",
+		"@graphql-tools/load": "^8.0.0",
+		"@graphql-tools/schema": "^10.0.0",
+		"dotenv": "^16.0.1",
+		"graphql": "^16.7.1",
+		"lodash": "^4.17.21",
+		"mongoose": "^7.4.1",
+		"require-all": "^3.0.0"
+	}
+}
