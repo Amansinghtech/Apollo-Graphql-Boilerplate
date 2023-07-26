@@ -1,7 +1,7 @@
 {
-	"name": "nekione-api-server",
+	"name": "apollo-graphql-boilerplate",
 	"version": "1.0.0",
-	"description": "nekione",
+	"description": "apollo graphql server with webpack, typescript 5.1.6, graphql codegen, and mongoose",
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
