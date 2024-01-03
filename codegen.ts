@@ -8,7 +8,6 @@ const config: CodegenConfig = {
 			plugins: [
 				'typescript',
 				'typescript-resolvers',
-				'typescript-mongodb',
 				'typescript-document-nodes',
 			],
 		},
