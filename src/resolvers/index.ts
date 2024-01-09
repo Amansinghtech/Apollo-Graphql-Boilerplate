@@ -2,23 +2,7 @@ import { merge } from 'lodash'
 import { GraphQLScalarType, GraphQLError, Kind } from 'graphql'
 import { Resolvers } from '../generated/graphql'
 import HelloResolvers from './hello'
-
-const dateScalar = new GraphQLScalarType({
-	name: 'Date',
-	description: 'Date custom scalar type',
-	serialize(value: Date) {
-		return value.toISOString() // Convert outgoing Date to integer for JSON
-	},
-	parseValue(value: string | number) {
-		return new Date(value) // Convert incoming integer to Date
-	},
-	parseLiteral(ast) {
-		if (ast.kind === Kind.INT) {
-			return new Date(parseInt(ast.value, 10)) // Convert hard-coded AST string to integer and then to Date
-		}
-		return null // Invalid hard-coded value (not an integer)
-	},
-})
+import { resolvers as GraphqlScalarResolvers } from 'graphql-scalars'
 
 const EMAIL_ADDRESS_REGEX =
 	/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -125,10 +109,9 @@ const FilterLimitScalar = new GraphQLScalarType({
 })
 
 const resolvers: Resolvers = {
-	Date: dateScalar,
 	Email: EmailScalar,
 	FilterSkip: FilterSkipScalar,
 	FilterLimit: FilterLimitScalar,
 }
 
-export default merge(resolvers, HelloResolvers)
+export default merge(resolvers, HelloResolvers, GraphqlScalarResolvers)

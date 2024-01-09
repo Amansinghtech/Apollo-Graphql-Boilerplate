@@ -12,8 +12,8 @@
 		"start": "node dist/server",
 		"dev": "nodemon --require dotenv/config dist/server",
 		"eslint": "./node_modules/eslint/bin/eslint.js src/*/**",
-		"devStart": "npm-run-all -p build:dev dev",
-		"codegen": "graphql-codegen --config codegen.ts"
+		"devStart": "npm-run-all -p build:dev dev codegen",
+		"codegen": "graphql-codegen --config codegen.ts --watch"
 	},
 	"repository": {
 		"type": "git",
@@ -48,9 +48,14 @@
 		"@graphql-tools/graphql-file-loader": "^8.0.0",
 		"@graphql-tools/load": "^8.0.1",
 		"@graphql-tools/schema": "^10.0.2",
+		"@parcel/watcher": "^2.3.0",
+		"@types/jsonwebtoken": "^9.0.5",
+		"argon2": "^0.31.2",
 		"dotenv": "^16.3.1",
 		"graphql": "^16.8.1",
+		"graphql-scalars": "^1.22.4",
 		"graphql-tag": "^2.12.6",
+		"jsonwebtoken": "^9.0.2",
 		"lodash": "^4.17.21",
 		"mongoose": "^8.0.3",
 		"require-all": "^3.0.0"

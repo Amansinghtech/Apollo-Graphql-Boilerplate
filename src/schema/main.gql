@@ -1,5 +1,3 @@
-"Convert incoming string to Date Object and Outgoing Date to timestamp"
-scalar Date
 "Verify incoming string to Email address and Outgoing Email to string"
 scalar Email
 "Verify incoming string to positive integer and Outgoing positive integer to string or zero"
@@ -17,4 +15,9 @@ directive @serviceAccount on FIELD_DEFINITION
 
 type Query {
 	hello: String
+	myDate: Date
+}
+
+type User {
+	man: String
 }

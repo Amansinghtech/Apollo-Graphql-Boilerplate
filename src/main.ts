@@ -4,6 +4,7 @@ import { GraphQLFileLoader } from '@graphql-tools/graphql-file-loader'
 import { loadSchemaSync } from '@graphql-tools/load'
 import { makeExecutableSchema } from '@graphql-tools/schema'
 import Resolvers from './resolvers/index'
+import { typeDefs as ScalarTypeDefs } from 'graphql-scalars'
 import mongoose from 'mongoose'
 import { vars } from './env'
 import { networkInterfaces } from 'os'
@@ -15,7 +16,7 @@ const typeDefs = loadSchemaSync('src/schema/**/*.gql', {
 mongoose.set('strictQuery', true)
 
 let mods = makeExecutableSchema({
-	typeDefs,
+	typeDefs: [typeDefs, ScalarTypeDefs],
 	resolvers: Resolvers,
 })
 
